@@ -1,7 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_appdesign_ui_template/home_page.dart';
 
-class SplashScrean extends StatelessWidget {
+class SplashScrean extends StatefulWidget {
+  @override
+  State<SplashScrean> createState() => _SplashScreanState();
+}
+
+class _SplashScreanState extends State<SplashScrean> {
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    Future.delayed(const Duration(seconds: 2), () {
+      if (!mounted) return; // safety check, avoids crash if screen was disposed
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const HomePage()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,14 +52,14 @@ class SplashScrean extends StatelessWidget {
             ),
             Row(
               children: [
-                SizedBox(width: 400,
+                SizedBox(
+                  width: 400,
                   child: Stack(
                     children: [
-                      Image(
-                        image: AssetImage("assets/images/image2.png"),
-                      ),
+                      Image(image: AssetImage("assets/images/image2.png")),
                       Positioned(
-                        left: 35,top: 75,
+                        left: 35,
+                        top: 75,
                         child: Image(
                           image: AssetImage("assets/images/image1.png"),
                         ),

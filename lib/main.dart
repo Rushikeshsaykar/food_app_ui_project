@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_appdesign_ui_template/ckeckout.dart';
+import 'package:food_appdesign_ui_template/home_page.dart';
 import 'package:food_appdesign_ui_template/splash_Screan.dart';
 
 void main() {
